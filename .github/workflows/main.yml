@@ -17,7 +17,7 @@ jobs:
         run: |
           # Retrieve the PAT from the secrets context
           env:
-          PAT_TOKEN=$pulluru
+         PAT_TOKEN: ${{ secrets.PAT_TOKEN }} 
           
           # Now you can use the PAT in your workflow
           echo "Using Personal Access Token: $PAT_TOKEN"
