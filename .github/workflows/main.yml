@@ -1,0 +1,25 @@
+name: My Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Personal Access Token
+        run: |
+          # Retrieve the PAT from the secrets context
+          env:
+         PAT_TOKEN: ${{ secrets.PAT_TOKEN }} 
+          
+          # Now you can use the PAT in your workflow
+          echo "Using Personal Access Token: $PAT_TOKEN"
+
+      # Add more steps as needed for your workflow
